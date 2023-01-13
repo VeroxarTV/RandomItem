@@ -25,6 +25,8 @@ public final class RandomItem extends JavaPlugin {
         items.removeIf(material -> material.name().contains("HANGING_SIGN"));
         items.removeIf(material -> material.name().contains("COMMAND"));
         items.removeIf(material -> material.name().contains("CAMEL"));
+        items.removeIf(material -> material.name().contains("DEBUG"));
+        items.removeIf(material -> material.name().contains("STRUCTURE"));
         time = this.getConfig().getLong("time");
         Bukkit.getServer().getPluginManager().registerEvents(new ConnectionListener(), this);
         Bukkit.getWorlds().forEach(world -> world.setTime(0));
