@@ -52,7 +52,6 @@ public abstract class Countdown implements Runnable {
     public void cancelCountdown() {
         this.running = false;
         this.task.cancel();
-        this.onEnd();
     }
 
     public boolean isRunning() {

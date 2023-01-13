@@ -14,6 +14,8 @@ public class ConnectionListener implements Listener {
     public void onJoin (PlayerJoinEvent event) {
         event.joinMessage(Component.text("§a+ §7" + event.getPlayer().getName()));
         if (Bukkit.getOnlinePlayers().size() == 1) {
+            if (RandomItem.getItemCountdown().isRunning())
+                RandomItem.getItemCountdown().cancelCountdown();
             RandomItem.getItemCountdown().startCountdown(RandomItem.getTime());
         }
     }
@@ -21,7 +23,9 @@ public class ConnectionListener implements Listener {
     @EventHandler
     public void onQuit (PlayerQuitEvent event) {
         event.quitMessage(Component.text("§c- §7" + event.getPlayer().getName()));
-        if (Bukkit.getOnlinePlayers().size() < 1 && RandomItem.getItemCountdown().isRunning())
-            RandomItem.getItemCountdown().cancelCountdown();
+        if (Bukkit.getOnlinePlayers().size() == 0) {
+            if (RandomItem.getItemCountdown().isRunning())
+                RandomItem.getItemCountdown().cancelCountdown();
+        }
     }
 }

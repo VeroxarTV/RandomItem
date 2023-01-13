@@ -15,6 +15,7 @@ public class ItemCountdown extends Countdown {
 
     @Override
     public void onEnd() {
+
         if (getRemainingSeconds() == 0) {
             for (Player player : Bukkit.getOnlinePlayers()) {
                 ItemStack item = new ItemStack(RandomItem.getItems().get(
