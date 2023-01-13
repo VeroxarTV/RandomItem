@@ -1,0 +1,6 @@
+name: RandomItem
+version: '${project.version}'
+main: de.veroxar.randomitem.RandomItem
+api-version: 1.19
+authors: [ Veroxar ]
+description: Get a random Item every Second you configured
