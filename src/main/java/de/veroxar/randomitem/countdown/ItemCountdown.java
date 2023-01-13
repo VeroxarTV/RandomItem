@@ -46,8 +46,8 @@ public class ItemCountdown extends Countdown {
         if (!player.getInventory().contains(item)) {
             givePlayerItem(player);
         } else {
-            player.sendMessage("§7[§bRANDOM-ITEM§7] §a" + player.getName() +
-                    " hat folgendes Item erhalten: §6" + item.getType().name());
+            Bukkit.broadcast( Component.text( player.getName() +
+                    " hat folgendes Item erhalten: §6" + item.getType().name()));
         }
     }
 }
