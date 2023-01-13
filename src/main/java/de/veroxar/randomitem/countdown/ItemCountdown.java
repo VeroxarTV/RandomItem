@@ -41,14 +41,7 @@ public class ItemCountdown extends Countdown {
         HashMap<Integer, ItemStack> failed = player.getInventory().addItem(item);
         if (!failed.isEmpty()) {
             player.getWorld().dropItem(player.getLocation(), item);
-            if (player.getWorld().getEntities().contains(item.getType())) {
-                player.sendMessage("§7[§bRANDOM-ITEM§7] §a" + player.getName() +
-                        " hat folgendes Item erhalten: §6" + item.getType().name());
-                failed.clear();
-                return;
-            } else {
-                givePlayerItem(player);
-            }
+            failed.clear();
         }
         if (!player.getInventory().contains(item)) {
             givePlayerItem(player);
