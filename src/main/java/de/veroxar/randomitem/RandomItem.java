@@ -22,6 +22,7 @@ public final class RandomItem extends JavaPlugin {
         this.saveDefaultConfig();
         Collections.addAll(items, Material.values());
         items.removeIf(material -> material.name().contains("BAMBOO"));
+        items.removeIf(material -> material.name().contains("HANGING_SIGN"));
         time = this.getConfig().getLong("time");
         Bukkit.getServer().getPluginManager().registerEvents(new ConnectionListener(), this);
         Bukkit.getWorlds().forEach(world -> world.setTime(0));
