@@ -6,10 +6,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public final class RandomItem extends JavaPlugin {
 
@@ -23,7 +20,8 @@ public final class RandomItem extends JavaPlugin {
     public void onEnable() {
         instance = this;
         this.saveDefaultConfig();
-        items.addAll(Arrays.asList(Material.values()));
+        Collections.addAll(items, Material.values());
+        items.removeIf(material -> material.name().contains("BAMBOO"));
         time = this.getConfig().getLong("time");
         Bukkit.getServer().getPluginManager().registerEvents(new ConnectionListener(), this);
         Bukkit.getWorlds().forEach(world -> world.setTime(0));
