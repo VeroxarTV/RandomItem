@@ -47,7 +47,7 @@ public class ItemCountdown extends Countdown {
             givePlayerItem(player);
         } else {
             Bukkit.broadcast(Component.text(ChatColor.GREEN + player.getName() +
-                    " hat folgendes Item erhalten: §6" + item.getType().name()));
+                    "§7 hat folgendes Item erhalten: §6" + item.getType().name()));
         }
     }
 }
